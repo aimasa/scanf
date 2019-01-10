@@ -89,7 +89,7 @@ class scanTask():
                     self.result["numerOfPorts"] = self.result["numerOfPorts"] + 1
                     for dic_host_tmp in list_hosts_tmp:
                         if(dic_host_tmp["host"] == result["ip"]):
-                            list_port_tmp=[]
+                            list_port_tmp= dic_host_tmp["ports"]
                             dic_host_tmp["numberOfPorts"] = dic_host_tmp["numberOfPorts"] + 1
                             result_port = PortResult(result["port"])
                             list_poty_tmp = dic_host_tmp["ports"]
@@ -137,7 +137,7 @@ class scanTask():
                         if(result["ip"]==host["host"]):
                             host["numberOfWarnings"] = host["numberOfWarnings"] + 1
                             for port in host["ports"]:
-                                list_warn_tmp = []
+                                list_warn_tmp = port["warnings"]
                                 if(port["port"]==result["port"]):
                                     list_warn_tmp = port["warnings"]
                                     list_warn_tmp.append(WarnResult(result["description"], result["plugin"]).add_Warn())
